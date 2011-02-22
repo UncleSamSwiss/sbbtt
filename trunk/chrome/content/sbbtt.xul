@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+
+<!-- STYLE -->
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://sbbtt/skin/sbbtt.css" type="text/css"?>
+
+<!-- LOCALIZATION -->
+<!DOCTYPE overlay SYSTEM "chrome://sbbtt/locale/sbbtt.dtd">
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <!-- SCRIPTS -->
+  <script type="application/x-javascript" src="chrome://sbbtt/content/sbbtt.js"/>
+  <script type="application/x-javascript" src="chrome://sbbtt/content/datechooser.js"/>
+
+  <!-- STRING BUNDLES -->
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="sbbtt-strings" src="chrome://sbbtt/locale/sbbtt.properties"/>
+  </stringbundleset>
+
+  <commandset id="mainCommandSet">
+    <command id="sbbtt-cmd-search" oncommand="sbbtt_doSearch();"/>
+    <command id="sbbtt-cmd-chevron" oncommand="sbbtt_doChevron();"/>
+    <command id="sbbtt-cmd-toggle" oncommand="sbbtt_doToggle();"/>
+  </commandset>
+
+  <keyset id="mainKeyset">
+    <key id="sbbtt-toggle-toolbar" command="sbbtt-cmd-toggle" modifiers="control shift" key="S"/>
+  </keyset>
+
+  <toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="sbbtt-options-button"
+                   type="menu"
+                   image="chrome://sbbtt/skin/&sbbtt.logo.text;-txt.png"
+                   tooltiptext="&sbbtt.options.tooltip;"
+                   style="-moz-box-orient: horizontal;">
+      <menupopup id="sbbtt-options-popup"
+                 onpopupshowing="sbbtt_updateAutoAdd();">
+        <menuitem label="&sbbtt.homepage;"
+                  image="chrome://sbbtt/skin/logo-small.png"
+                  class="menuitem-iconic"
+                  tooltiptext="&sbbtt.homepage.url;"
+                  oncommand="sbbtt_goHomepage(event);"/>
+        <menuitem label="&sbbtt.projectpage;"
+                  class="menuitem-iconic"
+                  tooltiptext="&sbbtt.projectpage.url;"
+                  oncommand="sbbtt_goHomepage(event);"/>
+        <menuseparator/>
+        <menuitem id="sbbtt-options-autoadd" label="&sbbtt.options.autoadd;" oncommand="sbbtt_setAutoAdd(this.getAttribute('checked'))" type="checkbox"/>
+        <!-- <menuitem label="Debug" oncommand="sbbtt_doDebug();"/> -->
+      </menupopup>
+    </toolbarbutton>
+
+    <toolbaritem id="sbbtt-from-tbi">
+      <hbox align="center">
+        <label control="sbbtt-from-menulist" value="&sbbtt.label.from;:"/>
+        <menulist id="sbbtt-from-menulist"
+                  value=""
+                  editable="true"
+                  tooltiptext="&sbbtt.label.from;"
+                  onkeypress="sbbtt_searchKeyPress(event)">
+          <menupopup id="sbbtt-from-popup" onpopupshowing="sbbtt_loadPopup(this)" minwidth="150"/>
+        </menulist>
+      </hbox>
+    </toolbaritem>
+    <toolbaritem id="sbbtt-to-tbi">
+      <hbox align="center">
+        <label control="sbbtt-to-menulist" value="&sbbtt.label.to;:" flex="1"/>
+        <menulist id="sbbtt-to-menulist"
+                  value=""
+                  editable="true"
+                  tooltiptext="&sbbtt.label.to;"
+                  onkeypress="sbbtt_searchKeyPress(event)">
+          <menupopup id="sbbtt-to-popup" onpopupshowing="sbbtt_loadPopup(this)" minwidth="150"/>
+        </menulist>
+      </hbox>
+    </toolbaritem>
+    <toolbaritem id="sbbtt-search-tbi">
+      <toolbarbutton id="sbbtt-adv-chevron"
+                     image="chrome://global/skin/toolbar/chevron.gif"
+                     tooltiptext="&sbbtt.advanced.tooltip;"
+                     command="sbbtt-cmd-chevron"/>
+      <toolbarbutton id="sbbtt-search-button"
+                     label="&sbbtt.search;"
+                     image="chrome://sbbtt/skin/logo.png"
+                     tooltiptext="&sbbtt.search.tooltip;"
+                     command="sbbtt-cmd-search"/>
+    </toolbaritem>
+
+    <!-- ************** ADVANCED TOOLBAR ************** -->
+
+    <toolbaritem id="sbbtt-via-tbi">
+      <hbox align="center">
+        <label control="sbbtt-via-menulist" value="&sbbtt.label.via;:"/>
+        <menulist id="sbbtt-via-menulist"
+                  value=""
+                  editable="true"
+                  tooltiptext="&sbbtt.label.via;"
+                  onkeypress="sbbtt_searchKeyPress(event)">
+          <menupopup id="sbbtt-via-popup" onpopupshowing="sbbtt_loadPopup(this)" minwidth="150"/>
+        </menulist>
+      </hbox>
+    </toolbaritem>
+    <toolbaritem id="sbbtt-date-tbi">
+      <hbox align="center">
+        <label control="sbbtt-date-textbox" value="&sbbtt.label.date;:"/>
+        <textbox id="sbbtt-date-textbox" style="width:6em;" tooltiptext="&sbbtt.label.date;"/>
+        <toolbarbutton id="sbbtt-date-button"
+                       type="menu"
+                       tooltiptext="&sbbtt.label.date;"
+                       style="-moz-box-orient: horizontal;">
+          <menupopup id="sbbtt-date-popup"
+                     position="after_end"
+                     control="sbbtt-date-textbox"
+                     onpopupshowing="datechooser_loadDatePopup(this)"/>
+        </toolbarbutton>
+      </hbox>
+    </toolbaritem>
+    <toolbaritem id="sbbtt-time-tbi">
+      <hbox align="center">
+        <label control="sbbtt-time-textbox" value="&sbbtt.label.time;"/>
+        <textbox id="sbbtt-time-textbox" style="width:4em;" tooltiptext="&sbbtt.label.time;"/>
+        <radiogroup orient="horizontal">
+          <radio id="sbbtt-departure" selected="true" label="&sbbtt.label.departure;"/>
+          <radio id="sbbtt-arrival" label="&sbbtt.label.arrival;"/>
+        </radiogroup>
+      </hbox>
+    </toolbaritem>
+    <toolbarbutton id="sbbtt-adv-search-button"
+                   label="&sbbtt.search;"
+                   image="chrome://sbbtt/skin/logo.png"
+                   tooltiptext="&sbbtt.search.tooltip;"
+                   command="sbbtt-cmd-search"/>
+  </toolbarpalette>
+  
+  <toolbox id="navigator-toolbox" crop="end">
+    <toolbar id="sbbtt-toolbar" 
+             class="chromeclass-toolbar-additional"
+             iconsize="small"
+             customizable="true"
+             context="toolbar-context-menu"
+             toolbarname="&sbbtt.toolbar.name;"
+             crop="end"
+             persist="collapsed"
+             defaultset="sbbtt-options-button,sbbtt-from-tbi,sbbtt-to-tbi,sbbtt-search-tbi">
+    </toolbar>
+    <toolbar id="sbbtt-adv-toolbar" 
+             class="chromeclass-toolbar-additional"
+             iconsize="small"
+             customizable="true"
+             context="toolbar-context-menu"
+             toolbarname="&sbbtt.advanced.toolbar.name;"
+             crop="end"
+             persist="collapsed"
+             hidden="true"
+             defaultset="sbbtt-via-tbi,sbbtt-date-tbi,sbbtt-time-tbi,sbbtt-adv-search-button">
+    </toolbar>
+  </toolbox>
+
+</overlay>

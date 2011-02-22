@@ -1,0 +1,21 @@
+<!ENTITY sbbtt.options.tooltip "Options de l'horaire CFF">
+<!ENTITY sbbtt.label.from "De">
+<!ENTITY sbbtt.label.via "Via">
+<!ENTITY sbbtt.label.to "A">
+<!ENTITY sbbtt.advanced.tooltip "Recherche avancée...">
+<!ENTITY sbbtt.advanced.toolbar.name "Recherche horaire CFF avancée">
+<!ENTITY sbbtt.search "Rechercher">
+<!ENTITY sbbtt.search.tooltip "Recherche dans l'horaire CFF">
+<!ENTITY sbbtt.label.date "Date">
+<!ENTITY sbbtt.label.time "Heure">
+<!ENTITY sbbtt.label.departure "Départ">
+<!ENTITY sbbtt.label.arrival "Arrivée">
+<!ENTITY sbbtt.toolbar.name "Recherche Horaire CFF">
+<!ENTITY sbbtt.logo.text "cff">
+<!ENTITY sbbtt.homepage "Page d'accueil CFF">
+<!ENTITY sbbtt.homepage.url "http://www.sbb.ch/fr/">
+<!ENTITY sbbtt.projectpage "Page du projet">
+<!ENTITY sbbtt.projectpage.url "http://free.hicon.ch/Projects/SBBToolbar">
+<!ENTITY sbbtt.options.autoadd "Ajouter automatiquement les arrêts">
+<!ENTITY sbbtt.options.autoadd.yes "Oui">
+<!ENTITY sbbtt.options.autoadd.no "Non">

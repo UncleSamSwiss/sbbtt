@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <!-- more infos: http://www.bengoodger.com/software/mb/extensions/howto.html -->
+  <!-- example update RDF: http://www.google.com/tools/firefox/update?guid={3112ca9c-de6d-4884-a869-9855de68056c}&version=2.1.20060807W&application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}&appversion=2.0.0.1&dist=google -->
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>{52efaee9-3555-4254-8ef7-fa41266e3153}</em:id>
+    <em:version>1.0.2</em:version>
+    <em:type>2</em:type>
+   
+    <!-- Target Application this extension can install into, 
+         with minimum and maximum supported versions. --> 
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>2.0</em:minVersion>
+        <em:maxVersion>2.0.0.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+   
+    <!-- Front End MetaData -->
+    <em:name>SBB Toolbar</em:name>
+    <em:description>Easy search the SBB timetable</em:description>
+    <em:creator>Samuel Weibel</em:creator>
+    <em:homepageURL>http://free.hicon.ch/Projects/SBBToolbar</em:homepageURL>
+    <em:iconURL>chrome://sbbtt/skin/icon.png</em:iconURL>
+    <em:updateURL>http://free.hicon.ch/update.rdf</em:updateURL>
+  </Description>
+</RDF>

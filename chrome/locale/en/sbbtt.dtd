@@ -1,0 +1,21 @@
+<!ENTITY sbbtt.options.tooltip "SBB Timetable Options">
+<!ENTITY sbbtt.label.from "From">
+<!ENTITY sbbtt.label.via "Via">
+<!ENTITY sbbtt.label.to "To">
+<!ENTITY sbbtt.advanced.tooltip "Advanced search...">
+<!ENTITY sbbtt.advanced.toolbar.name "Advanced SBB Timetable Search">
+<!ENTITY sbbtt.search "Search">
+<!ENTITY sbbtt.search.tooltip "Search the SBB Timetable">
+<!ENTITY sbbtt.label.date "Date">
+<!ENTITY sbbtt.label.time "Time">
+<!ENTITY sbbtt.label.departure "Departure">
+<!ENTITY sbbtt.label.arrival "Arrival">
+<!ENTITY sbbtt.toolbar.name "SBB Timetable Search">
+<!ENTITY sbbtt.logo.text "sbb">
+<!ENTITY sbbtt.homepage "SBB Home Page">
+<!ENTITY sbbtt.homepage.url "http://www.sbb.ch/en/">
+<!ENTITY sbbtt.projectpage "Project Home Page">
+<!ENTITY sbbtt.projectpage.url "http://free.hicon.ch/Projects/SBBToolbar">
+<!ENTITY sbbtt.options.autoadd "Automatically add stops">
+<!ENTITY sbbtt.options.autoadd.yes "Yes">
+<!ENTITY sbbtt.options.autoadd.no "No">

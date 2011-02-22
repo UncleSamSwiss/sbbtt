@@ -1,0 +1,15 @@
+# CONTENT
+content sbbtt chrome/content/
+# todo: should we add "xpcnativewrappers=yes"?
+
+# OVERLAYS
+overlay	chrome://browser/content/browser.xul	chrome://sbbtt/content/sbbtt.xul 
+
+# LOCALES
+locale sbbtt en chrome/locale/en/
+locale sbbtt de chrome/locale/de/
+locale sbbtt fr chrome/locale/fr/
+locale sbbtt it chrome/locale/it/
+
+# SKINS
+skin sbbtt classic/1.0 chrome/skin/

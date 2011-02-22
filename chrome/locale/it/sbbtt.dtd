@@ -1,0 +1,21 @@
+<!ENTITY sbbtt.options.tooltip "Opzioni del'orario FFS">
+<!ENTITY sbbtt.label.from "Da">
+<!ENTITY sbbtt.label.via "Via">
+<!ENTITY sbbtt.label.to "A">
+<!ENTITY sbbtt.advanced.tooltip "Ricerca avanzata...">
+<!ENTITY sbbtt.advanced.toolbar.name "Ricerca Orario FFS Avanzato">
+<!ENTITY sbbtt.search "Cerca">
+<!ENTITY sbbtt.search.tooltip "Cerca l'orario FFS">
+<!ENTITY sbbtt.label.date "Date">
+<!ENTITY sbbtt.label.time "Time">
+<!ENTITY sbbtt.label.departure "Partenza">
+<!ENTITY sbbtt.label.arrival "Arrivo">
+<!ENTITY sbbtt.toolbar.name "Ricerca Orario FFS">
+<!ENTITY sbbtt.logo.text "ffs">
+<!ENTITY sbbtt.homepage "Home page delle FFS">
+<!ENTITY sbbtt.homepage.url "http://www.sbb.ch/it/">
+<!ENTITY sbbtt.projectpage "Home page del progetto ">
+<!ENTITY sbbtt.projectpage.url "http://free.hicon.ch/Projects/SBBToolbar">
+<!ENTITY sbbtt.options.autoadd "Aggiungere automaticamente le fermate">
+<!ENTITY sbbtt.options.autoadd.yes "Si">
+<!ENTITY sbbtt.options.autoadd.no "No">

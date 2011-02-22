@@ -1,0 +1,21 @@
+<!ENTITY sbbtt.options.tooltip "SBB Fahrplan Optionen">
+<!ENTITY sbbtt.label.from "Von">
+<!ENTITY sbbtt.label.via "Via">
+<!ENTITY sbbtt.label.to "Nach">
+<!ENTITY sbbtt.advanced.tooltip "Erweiterte Suche...">
+<!ENTITY sbbtt.advanced.toolbar.name "Erweiterte SBB Fahrplan Suche">
+<!ENTITY sbbtt.search "Suchen">
+<!ENTITY sbbtt.search.tooltip "Suche SBB Fahrplan">
+<!ENTITY sbbtt.label.date "Datum">
+<!ENTITY sbbtt.label.time "Zeit">
+<!ENTITY sbbtt.label.departure "Abfahrt">
+<!ENTITY sbbtt.label.arrival "Ankunft">
+<!ENTITY sbbtt.toolbar.name "SBB Fahrplan Suche">
+<!ENTITY sbbtt.logo.text "sbb">
+<!ENTITY sbbtt.homepage "SBB Homepage">
+<!ENTITY sbbtt.homepage.url "http://www.sbb.ch/de/">
+<!ENTITY sbbtt.projectpage "Projekt-Homepage">
+<!ENTITY sbbtt.projectpage.url "http://free.hicon.ch/Projects/SBBToolbar">
+<!ENTITY sbbtt.options.autoadd "Haltstellen automatisch hinzufügen">
+<!ENTITY sbbtt.options.autoadd.yes "Ja">
+<!ENTITY sbbtt.options.autoadd.no "Nein">

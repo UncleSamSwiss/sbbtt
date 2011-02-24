@@ -14,6 +14,8 @@
 <!ENTITY sbbtt.logo.text "sbb">
 <!ENTITY sbbtt.homepage "SBB Home Page">
 <!ENTITY sbbtt.homepage.url "http://www.sbb.ch/en/">
+<!ENTITY sbbtt.mysbb "mySBB">
+<!ENTITY sbbtt.mysbb.url "http://fahrplan.sbb.ch/bin/profile.exe/en">
 <!ENTITY sbbtt.projectpage "Project Home Page">
 <!ENTITY sbbtt.projectpage.url "http://free.hicon.ch/Projects/SBBToolbar">
 <!ENTITY sbbtt.options.autoadd "Automatically add stops">

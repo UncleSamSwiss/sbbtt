@@ -14,6 +14,8 @@
 <!ENTITY sbbtt.logo.text "ffs">
 <!ENTITY sbbtt.homepage "Home page delle FFS">
 <!ENTITY sbbtt.homepage.url "http://www.sbb.ch/it/">
+<!ENTITY sbbtt.mysbb "myFFS">
+<!ENTITY sbbtt.mysbb.url "http://fahrplan.sbb.ch/bin/profile.exe/in">
 <!ENTITY sbbtt.projectpage "Home page del progetto ">
 <!ENTITY sbbtt.projectpage.url "http://free.hicon.ch/Projects/SBBToolbar">
 <!ENTITY sbbtt.options.autoadd "Aggiungere automaticamente le fermate">

@@ -14,6 +14,8 @@
 <!ENTITY sbbtt.logo.text "sbb">
 <!ENTITY sbbtt.homepage "SBB Homepage">
 <!ENTITY sbbtt.homepage.url "http://www.sbb.ch/de/">
+<!ENTITY sbbtt.mysbb "mySBB">
+<!ENTITY sbbtt.mysbb.url "http://fahrplan.sbb.ch/bin/profile.exe/dn">
 <!ENTITY sbbtt.projectpage "Projekt-Homepage">
 <!ENTITY sbbtt.projectpage.url "http://free.hicon.ch/Projects/SBBToolbar">
 <!ENTITY sbbtt.options.autoadd "Haltstellen automatisch hinzufügen">

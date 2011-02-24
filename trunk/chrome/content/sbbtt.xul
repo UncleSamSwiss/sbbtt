@@ -19,9 +19,9 @@
   </stringbundleset>
 
   <commandset id="mainCommandSet">
-    <command id="sbbtt-cmd-search" oncommand="sbbtt_doSearch();"/>
-    <command id="sbbtt-cmd-chevron" oncommand="sbbtt_doChevron();"/>
-    <command id="sbbtt-cmd-toggle" oncommand="sbbtt_doToggle();"/>
+    <command id="sbbtt-cmd-search" oncommand="sbbtt.doSearch();"/>
+    <command id="sbbtt-cmd-chevron" oncommand="sbbtt.doChevron();"/>
+    <command id="sbbtt-cmd-toggle" oncommand="sbbtt.doToggle();"/>
   </commandset>
 
   <keyset id="mainKeyset">
@@ -35,19 +35,25 @@
                    tooltiptext="&sbbtt.options.tooltip;"
                    style="-moz-box-orient: horizontal;">
       <menupopup id="sbbtt-options-popup"
-                 onpopupshowing="sbbtt_updateAutoAdd();">
+                 onpopupshowing="sbbtt.loadMainMenu();">
         <menuitem label="&sbbtt.homepage;"
                   image="chrome://sbbtt/skin/logo-small.png"
                   class="menuitem-iconic"
                   tooltiptext="&sbbtt.homepage.url;"
-                  oncommand="sbbtt_goHomepage(event);"/>
+                  oncommand="sbbtt.goHomepage(event);"/>
         <menuitem label="&sbbtt.projectpage;"
                   class="menuitem-iconic"
                   tooltiptext="&sbbtt.projectpage.url;"
-                  oncommand="sbbtt_goHomepage(event);"/>
+                  oncommand="sbbtt.goHomepage(event);"/>
         <menuseparator/>
-        <menuitem id="sbbtt-options-autoadd" label="&sbbtt.options.autoadd;" oncommand="sbbtt_setAutoAdd(this.getAttribute('checked'))" type="checkbox"/>
-        <!-- <menuitem label="Debug" oncommand="sbbtt_doDebug();"/> -->
+        <menuitem label="&sbbtt.mysbb;"
+                  image="chrome://sbbtt/skin/logo-small.png"
+                  class="menuitem-iconic"
+                  tooltiptext="&sbbtt.mysbb.url;"
+                  oncommand="sbbtt.goHomepage(event);"/>
+        <menuseparator id="sbbtt-options-mysbb-separator"/>
+        <menuitem id="sbbtt-options-autoadd" label="&sbbtt.options.autoadd;" oncommand="sbbtt.setAutoAdd(this.getAttribute('checked'))" type="checkbox"/>
+        <!-- <menuitem label="Debug" oncommand="sbbtt.doDebug();"/> -->
       </menupopup>
     </toolbarbutton>
 
@@ -58,8 +64,8 @@
                   value=""
                   editable="true"
                   tooltiptext="&sbbtt.label.from;"
-                  onkeypress="sbbtt_searchKeyPress(event)">
-          <menupopup id="sbbtt-from-popup" onpopupshowing="sbbtt_loadPopup(this)" minwidth="150"/>
+                  onkeypress="sbbtt.searchKeyPress(event)">
+          <menupopup id="sbbtt-from-popup" onpopupshowing="sbbtt.loadPopup(this)" minwidth="150"/>
         </menulist>
       </hbox>
     </toolbaritem>
@@ -70,14 +76,14 @@
                   value=""
                   editable="true"
                   tooltiptext="&sbbtt.label.to;"
-                  onkeypress="sbbtt_searchKeyPress(event)">
-          <menupopup id="sbbtt-to-popup" onpopupshowing="sbbtt_loadPopup(this)" minwidth="150"/>
+                  onkeypress="sbbtt.searchKeyPress(event)">
+          <menupopup id="sbbtt-to-popup" onpopupshowing="sbbtt.loadPopup(this)" minwidth="150"/>
         </menulist>
       </hbox>
     </toolbaritem>
     <toolbaritem id="sbbtt-search-tbi">
       <toolbarbutton id="sbbtt-adv-chevron"
-                     image="chrome://global/skin/toolbar/chevron.gif"
+                     image="chrome://sbbtt/skin/chevron.gif"
                      tooltiptext="&sbbtt.advanced.tooltip;"
                      command="sbbtt-cmd-chevron"/>
       <toolbarbutton id="sbbtt-search-button"
@@ -96,8 +102,8 @@
                   value=""
                   editable="true"
                   tooltiptext="&sbbtt.label.via;"
-                  onkeypress="sbbtt_searchKeyPress(event)">
-          <menupopup id="sbbtt-via-popup" onpopupshowing="sbbtt_loadPopup(this)" minwidth="150"/>
+                  onkeypress="sbbtt.searchKeyPress(event)">
+          <menupopup id="sbbtt-via-popup" onpopupshowing="sbbtt.loadPopup(this)" minwidth="150"/>
         </menulist>
       </hbox>
     </toolbaritem>

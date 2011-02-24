@@ -14,6 +14,8 @@
 <!ENTITY sbbtt.logo.text "cff">
 <!ENTITY sbbtt.homepage "Page d'accueil CFF">
 <!ENTITY sbbtt.homepage.url "http://www.sbb.ch/fr/">
+<!ENTITY sbbtt.mysbb "myCFF">
+<!ENTITY sbbtt.mysbb.url "http://fahrplan.sbb.ch/bin/profile.exe/fn">
 <!ENTITY sbbtt.projectpage "Page du projet">
 <!ENTITY sbbtt.projectpage.url "http://free.hicon.ch/Projects/SBBToolbar">
 <!ENTITY sbbtt.options.autoadd "Ajouter automatiquement les arrêts">

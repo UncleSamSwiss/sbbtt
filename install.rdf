@@ -8,7 +8,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>{52efaee9-3555-4254-8ef7-fa41266e3153}</em:id>
-    <em:version>2.0.0</em:version>
+    <em:version>2.0.1</em:version>
     <em:type>2</em:type>
    
     <!-- Target Application this extension can install into, 
@@ -17,7 +17,7 @@
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
         <em:minVersion>3.0</em:minVersion>
-        <em:maxVersion>3.6.*</em:maxVersion>
+        <em:maxVersion>4.*</em:maxVersion>
       </Description>
     </em:targetApplication>
    

@@ -21,3 +21,8 @@
 <!ENTITY sbbtt.options.autoadd "Ajouter automatiquement les arrêts">
 <!ENTITY sbbtt.options.autoadd.yes "Oui">
 <!ENTITY sbbtt.options.autoadd.no "Non">
+<!ENTITY sbbtt.lang "Langue">
+<!ENTITY sbbtt.lang.de "Allemand">
+<!ENTITY sbbtt.lang.fr "Français">
+<!ENTITY sbbtt.lang.it "Italien">
+<!ENTITY sbbtt.lang.en "Anglais">

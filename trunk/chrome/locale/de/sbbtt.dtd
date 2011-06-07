@@ -21,3 +21,8 @@
 <!ENTITY sbbtt.options.autoadd "Haltstellen automatisch hinzufügen">
 <!ENTITY sbbtt.options.autoadd.yes "Ja">
 <!ENTITY sbbtt.options.autoadd.no "Nein">
+<!ENTITY sbbtt.lang "Sprache">
+<!ENTITY sbbtt.lang.de "Deutsch">
+<!ENTITY sbbtt.lang.fr "Französisch">
+<!ENTITY sbbtt.lang.it "Italienisch">
+<!ENTITY sbbtt.lang.en "Englisch">

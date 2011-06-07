@@ -53,6 +53,14 @@
                   oncommand="sbbtt.goHomepage(event);"/>
         <menuseparator id="sbbtt-options-mysbb-separator"/>
         <menuitem id="sbbtt-options-autoadd" label="&sbbtt.options.autoadd;" oncommand="sbbtt.setAutoAdd(this.getAttribute('checked'))" type="checkbox"/>
+		<menu id="sbbtt-options-language" label="&sbbtt.lang;">
+			<menupopup id="sbbtt-options-language-popup">
+				<menuitem id="sbbtt-options-language-de" label="&sbbtt.lang.de;" oncommand="sbbtt.changeLanguage(this, 'de')" type="checkbox"/>
+				<menuitem id="sbbtt-options-language-fr" label="&sbbtt.lang.fr;" oncommand="sbbtt.changeLanguage(this, 'fr')" type="checkbox"/>
+				<menuitem id="sbbtt-options-language-it" label="&sbbtt.lang.it;" oncommand="sbbtt.changeLanguage(this, 'it')" type="checkbox"/>
+				<menuitem id="sbbtt-options-language-en" label="&sbbtt.lang.en;" oncommand="sbbtt.changeLanguage(this, 'en')" type="checkbox"/>
+			</menupopup>
+		</menu>
         <!-- <menuitem label="Debug" oncommand="sbbtt.doDebug();"/> -->
       </menupopup>
     </toolbarbutton>
@@ -109,7 +117,7 @@
     </toolbaritem>
     <toolbaritem id="sbbtt-date-tbi">
       <hbox align="center">
-        <label control="sbbtt-date-textbox" value="&sbbtt.label.date;:"/>
+        <label control="sbbtt-date-textbox" value="&sbbtt.label.date;:" onmouseclick="alert('Click')" ondoubleclick="alert('DoubleClick')"/>
         <textbox id="sbbtt-date-textbox" style="width:6em;" tooltiptext="&sbbtt.label.date;"/>
         <toolbarbutton id="sbbtt-date-button"
                        type="menu"

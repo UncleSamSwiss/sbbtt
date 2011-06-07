@@ -21,3 +21,8 @@
 <!ENTITY sbbtt.options.autoadd "Aggiungere automaticamente le fermate">
 <!ENTITY sbbtt.options.autoadd.yes "Si">
 <!ENTITY sbbtt.options.autoadd.no "No">
+<!ENTITY sbbtt.lang "Lingua">
+<!ENTITY sbbtt.lang.de "Tedesco">
+<!ENTITY sbbtt.lang.fr "Francese">
+<!ENTITY sbbtt.lang.it "Italiano">
+<!ENTITY sbbtt.lang.en "Inglese">

@@ -47,7 +47,7 @@ function datechooser_loadDatePopup(popup, date)
         var prevDate = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
         var prev = document.createElement("toolbarbutton");
         prev.setAttribute("label", "\u00AB");
-        prev.setAttribute("_dc_date", sbbtt_toDateString(prevDate));
+        prev.setAttribute("_dc_date", sbbtt.toDateString(prevDate));
         prev.setAttribute("tooltiptext", datechooser_getMonthName(prevDate));
         prev.addEventListener("command", datechooser_monthButtonClicked, true);
         header.appendChild(prev);
@@ -63,7 +63,7 @@ function datechooser_loadDatePopup(popup, date)
         var nextDate = new Date(date.getFullYear(), date.getMonth() + 1, date.getDate());
         var next = document.createElement("toolbarbutton");
         next.setAttribute("label", "\u00BB");
-        next.setAttribute("_dc_date", sbbtt_toDateString(nextDate));
+        next.setAttribute("_dc_date", sbbtt.toDateString(nextDate));
         next.setAttribute("tooltiptext", datechooser_getMonthName(nextDate));
         next.addEventListener("command", datechooser_monthButtonClicked, true);
         header.appendChild(next);
@@ -73,13 +73,20 @@ function datechooser_loadDatePopup(popup, date)
         // =================
         // <row>s with dates
         // =================
-        var todayStr = sbbtt_toDateString(new Date());
+        var todayStr = sbbtt.toDateString(new Date());
         var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
         var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
         var numBlanks = (firstDay.getDay() + 6) % 7;
 
         var row = document.createElement("row");
         rows.appendChild(row);
+		
+        var weekNum = document.createElement("label");
+		weekNum.setAttribute("value", 42);
+		weekNum.setAttribute("disabled", true);
+        weekNum.style.fontStyle = "italic";
+        weekNum.style.valign = "bottom";
+        row.appendChild(weekNum);
         
         var cell;
         for (cell = 0; cell < numBlanks; cell++)
@@ -94,8 +101,15 @@ function datechooser_loadDatePopup(popup, date)
             {
                 row = document.createElement("row");
                 rows.appendChild(row);
+				
+				weekNum = document.createElement("label");
+				weekNum.setAttribute("value", 42);
+				weekNum.setAttribute("disabled", true);
+				weekNum.style.fontStyle = "italic";
+				weekNum.style.valign = "bottom";
+				row.appendChild(weekNum);
             }
-            var dateTT = sbbtt_toDateString(new Date(date.getFullYear(), date.getMonth(), day));
+            var dateTT = sbbtt.toDateString(new Date(date.getFullYear(), date.getMonth(), day));
             var button = document.createElement("toolbarbutton");
             button.setAttribute("label", day);
             button.setAttribute("tooltiptext", dateTT);
@@ -152,7 +166,7 @@ function datechooser_parseInt(value)
 
 function datechooser_getMonthName(date)
 {
-    var monthsTexts = sbbtt_getProperty("monthNames");
+    var monthsTexts = sbbtt.getProperty("monthNames");
     var months = monthsTexts.split(",");
 
     var month = date.getMonth();

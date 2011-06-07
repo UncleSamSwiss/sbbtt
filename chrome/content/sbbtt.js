@@ -27,6 +27,11 @@ var sbbtt = {
             this.updateEmptyFields();
 
             this.loadMainMenu();
+			
+            var lang = this.getCharPref("lang", this.getProperty("locale"));
+            var langMenuItem = document.getElementById("sbbtt-options-language-" + lang);
+			if (langMenuItem)
+				langMenuItem.setAttribute("checked", true);
 
             var appcontent = document.getElementById("appcontent");   // browser
             if(appcontent)
@@ -460,7 +465,16 @@ var sbbtt = {
 
     loadURI : function(url, referrer, postData, aAllowThirdPartyFixup)
     {
-        if (window._content && window._content.location && (window._content.location.href == "about:blank" || window._content.location.href == ""))
+		// localize the URL if needed (website language different than browser language)
+		var locale = this.getProperty("locale");
+        var lang = this.getCharPref("lang", locale);
+		if (locale != lang)
+		{
+			url = url.replace(/\/[dfie]n(\??)$/i, "/" + lang[0] + "n$1");
+			url = url.replace(/\/(de|fr|it|en)\//i, "/" + lang + "/");
+		}
+		
+        if (window._content && window._content.location && (window._content.location.href == "about:blank" || window._content.location.href == "about:home" || window._content.location.href == ""))
         {
             loadURI(url, referrer, postData, aAllowThirdPartyFixup);
         }
@@ -489,20 +503,32 @@ var sbbtt = {
     {
         this.setBoolPref("autoadd", autoAdd);
     },
+	
+	changeLanguage : function(menuItem, lang)
+	{
+        this.setCharPref("lang", lang);
+		
+        try
+        {
+			var siblings = menuItem.parentNode.childNodes;
+			for (var i = 0; i < siblings.length; i++)
+			{
+				mi = siblings[i];
+				this.checkMenuItem(mi, mi == menuItem);
+			}
+		}
+        catch (ex)
+        {
+            alert("Exception:\n" + ex);
+        }
+	},
 
     loadMainMenu : function()
     {
         // set autoAdd correctly
         var menuItem = document.getElementById("sbbtt-options-autoadd");
         var autoAdd = this.getBoolPref("autoadd", false);
-        if (autoAdd)
-        {
-            menuItem.setAttribute("checked", "true");
-        }
-        else
-        {
-            menuItem.removeAttribute("checked");
-        }
+		this.checkMenuItem(menuItem, autoAdd);
 
         // load relations
         try
@@ -532,6 +558,18 @@ var sbbtt = {
             alert("Exception:\n" + ex);
         }
     },
+	
+	checkMenuItem : function(menuItem, checked)
+	{
+		if (checked)
+		{
+			menuItem.setAttribute("checked", "true");
+		}
+		else
+		{
+			menuItem.removeAttribute("checked");
+		}
+	},
 
     createSearchPostData : function()
     {

@@ -8,7 +8,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>{52efaee9-3555-4254-8ef7-fa41266e3153}</em:id>
-    <em:version>2.0.1</em:version>
+    <em:version>2.1.0</em:version>
     <em:type>2</em:type>
    
     <!-- Target Application this extension can install into, 

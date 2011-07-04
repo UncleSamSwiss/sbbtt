@@ -78,38 +78,44 @@ function datechooser_loadDatePopup(popup, date)
         var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
         var numBlanks = (firstDay.getDay() + 6) % 7;
 
-        var row = document.createElement("row");
-        rows.appendChild(row);
+        var row;
 		
-        var weekNum = document.createElement("label");
+        /*var weekNum = document.createElement("label");
 		weekNum.setAttribute("value", 42);
 		weekNum.setAttribute("disabled", true);
         weekNum.style.fontStyle = "italic";
         weekNum.style.valign = "bottom";
-        row.appendChild(weekNum);
+        row.appendChild(weekNum);*/
         
-        var cell;
-        for (cell = 0; cell < numBlanks; cell++)
-        {
-            var blank = document.createElement("label");
-            row.appendChild(blank);
-        }
+        var cell = 0;
 
         for (var day = 1; day <= lastDay.getDate(); day++)
         {
-            if (cell == 0 && row == null)
+            var cellDate = new Date(date.getFullYear(), date.getMonth(), day);
+            if (cell == 0)
             {
                 row = document.createElement("row");
                 rows.appendChild(row);
 				
-				weekNum = document.createElement("label");
-				weekNum.setAttribute("value", 42);
+				var weekNum = document.createElement("label");
+				weekNum.setAttribute("value", datechooser_getWeekNumber(cellDate));
 				weekNum.setAttribute("disabled", true);
 				weekNum.style.fontStyle = "italic";
 				weekNum.style.valign = "bottom";
 				row.appendChild(weekNum);
             }
-            var dateTT = sbbtt.toDateString(new Date(date.getFullYear(), date.getMonth(), day));
+            
+            // fill empty days before first day
+            if (day == 1)
+            {
+                for (; cell < numBlanks; cell++)
+                {
+                    var blank = document.createElement("label");
+                    row.appendChild(blank);
+                }
+            }
+            
+            var dateTT = sbbtt.toDateString(cellDate);
             var button = document.createElement("toolbarbutton");
             button.setAttribute("label", day);
             button.setAttribute("tooltiptext", dateTT);
@@ -173,6 +179,31 @@ function datechooser_getMonthName(date)
     var year = date.getFullYear();
 
     return months[month] + " " + year;
+}
+
+function datechooser_getWeekNumber(date)
+{
+    // gemäss http://dotnet-snippets.de/dns/kalenderwoche-berechnen-SID260.aspx
+    // Die Berechnung erfolgt nach dem 
+    // C++-Algorithmus von Ekkehard Hess aus einem Beitrag vom
+    // 29.7.1999 in der Newsgroup 
+    // borland.public.cppbuilder.language
+    // (freigegeben zur allgemeinen Verwendung)
+    // in JavaScript umgeschrieben von Samuel Weibel
+    var a = Math.floor((13 - (date.getMonth())) / 12.0);
+    var y = date.getFullYear() + 4800 - a;
+    var m = (date.getMonth()) + (12 * a) - 2;
+
+    var jd = date.getDate() + Math.floor(((153 * m) + 2) / 5) +
+        (365 * y) + Math.floor(y / 4) - Math.floor(y / 100) +
+        Math.floor(y / 400) - 32045;
+
+    var d4 = (jd + 31741 - (jd % 7)) % 146097 % 36524 % 1461;
+    var L = Math.floor(d4 / 1460);
+    var d1 = ((d4 - L) % 365) + L;
+
+    // Kalenderwoche ermitteln
+    return Math.floor(d1 / 7) + 1;
 }
 
 function datechooser_dayButtonClicked(event)
